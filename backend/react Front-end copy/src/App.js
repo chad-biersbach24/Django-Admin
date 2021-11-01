@@ -94,7 +94,7 @@ const addContactInfo = (e) => {
     console.log(btn1)
     formCreate(contactForm)
     formCreate2(contactForm2)
-    post2()
+    post()
 
     // makes the POST request to the api url using the contact for
     async function post2(){
@@ -108,18 +108,8 @@ const addContactInfo = (e) => {
                 alert("Your request was submitted")
                 document.getElementById("create-course-form").reset();
             })
+            .catch(err =>{alert("This form was not posted. " + err)})
     }
-    async function post(){
-         await axios({
-            method: 'post',
-            url: 'http://localhost:8000/api/data/',
-            data: contactForm2
-        })
-            .then((response) => {
-                console.log(response)
-                alert("Your request was submitted")
-
-            })
     }
     }
     // ----------------------------------------------------------
